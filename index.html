@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" />
+    <title>Team Generator</title>
+  </head>
+  <body>
+    <main>
+      <h1>Random pokemon team generator</h1>
+
+      <label for="teamSizeInput">Team Size(1-6):</label>
+      <input type="number" id="teamSizeInput" min="1" max="6" value="6" />
+      <br /><br />
+      <label>
+        <input type="radio" name="repeatTypes" value="true" />
+        Allow Repeated Types
+      </label>
+      <label>
+        <input type="radio" name="repeatTypes" value="false" checked />
+        Do Not Allow Repeated Types
+      </label>
+      <br /><br />
+
+      <button id="generateTeamButton">Generate Team</button>
+
+      <div id="teamOutput" class="pokemon-container"></div>
+    </main>
+    <footer class="footer">
+      <p>
+        Created by
+        <a href="https://www.github.com/Lucasgdbs" target="_blank"
+          >Lucas Gabriel</a
+        >
+      </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
