@@ -51,8 +51,8 @@ input[type="radio"] {
 }
 
 #generateTeamButton.generating {
-    background-color: #ccc; /* Cor de fundo cinza para indicar inatividade */
-    cursor: not-allowed; /* Cursor de mouse para indicar inatividade */
+  background-color: #ccc; /* Cor de fundo cinza para indicar inatividade */
+  cursor: not-allowed; /* Cursor de mouse para indicar inatividade */
 }
 
 .footer {
@@ -118,4 +118,9 @@ input[type="radio"] {
   font-weight: bold;
   font-size: 20px; /* Tamanho maior para destaque */
   text-align: left;
+}
+
+.pokemon-container a {
+  color: #ffffff;
+  text-decoration: none;
 }

@@ -116,8 +116,13 @@ function generateTeam() {
 
         pokemonElement.innerHTML = `
         <div class="pokemon-id">ID: ${pokemon.game_indice}</div>
+        <a href="https://pokemondb.net/pokedex/${pokemon.name}" target="_blank">
         <div class="pokemon-sprite"><img src=${pokemon.sprite}></div>
+        </a>
+        
+        <a href="https://pokemondb.net/pokedex/${pokemon.name}" target="_blank">
         <div class="pokemon-name">${pokemon.name}</div>
+        </a>
         <div class="pokemon-types">Types: ${pokemon.type.join(", ")}</div>
     `;
         teamOutput.appendChild(pokemonElement);
