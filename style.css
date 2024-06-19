@@ -50,6 +50,11 @@ input[type="radio"] {
   margin-right: 10px; /* Espaço à direita para separar os radio buttons */
 }
 
+#generateTeamButton.generating {
+    background-color: #ccc; /* Cor de fundo cinza para indicar inatividade */
+    cursor: not-allowed; /* Cursor de mouse para indicar inatividade */
+}
+
 .footer {
   background-color: #00695c;
   color: #fff;
