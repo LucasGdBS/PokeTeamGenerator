@@ -115,8 +115,6 @@ const repeatTypesRadio = document.getElementsByName("repeatTypes");
 const allowLegendariesRadio = document.getElementsByName("allowLegendaries");
 const generateTeamButton = document.getElementById("generateTeamButton");
 const teamOutput = document.getElementById("teamOutput");
-var checkedItemsTypes = getCheckedItemsTypes();
-var checkedItemsGenerations = getCheckedItemsGenerations();
 
 let maker = new TeamMaker();
 
@@ -161,6 +159,8 @@ function generateTeam() {
   maker.repeat_types = allowRepeatTypes;
   maker.allow_types = getCheckedItems("checkboxes-type");
   maker.allow_generations = getCheckedItems("checkboxes-generation");
+  console.log(maker.allow_types);
+  console.log(maker.allow_generations);
 
   if (maker.allow_types.length === 0) {
     alert("Please select at least one type.");
@@ -285,43 +285,11 @@ function getCheckedItems(containerId) {
       checkedItems.push(checkbox.value);
     }
   });
-  checkedItems.shift();
   return checkedItems;
 }
 
 // Adicionando o evento de click no botão
 generateTeamButton.addEventListener("click", generateTeam);
-
-// Responsavel por recuperar os valores dos checkbox
-function getCheckedItemsTypes() {
-  var checkboxes = document.querySelectorAll(
-    '#checkboxes-type input[type="checkbox"]'
-  );
-  var checkedItems = [];
-
-  checkboxes.forEach(function (checkbox) {
-    if (checkbox.checked) {
-      checkedItems.push(checkbox.value);
-    }
-  });
-
-  return checkedItems;
-}
-
-function getCheckedItemsGenerations() {
-  var checkboxes = document.querySelectorAll(
-    '#checkboxes-generation input[type="checkbox"]'
-  );
-  var checkedItems = [];
-
-  checkboxes.forEach(function (checkbox) {
-    if (checkbox.checked) {
-      checkedItems.push(checkbox.value);
-    }
-  });
-
-  return checkedItems;
-}
 
 // Responsavel por marcar todos os checkbox
 function checkAllBoxes(id_checkbox, class_checkbox) {
