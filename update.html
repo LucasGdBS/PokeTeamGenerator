@@ -13,133 +13,147 @@
     <title>Team Maker</title>
   </head>
   <body class="bg-dark">
-    <main class="container mt-5 white-text">
-      <h1 class="text-center">Random pokemon team generator</h1>
-      <!-- Start presets -->
-      <div class="row mt-4 d-flex justify-content-center">
-        <!-- Input for team size -->
-        <div class="col-md-2">
-          <label for="teamSize">Team Size (1-6)</label>
-          <input
-            type="number"
-            id="teamSize"
-            class="form-control"
-            min="1"
-            max="6"
-            value="6"
-          />
-        </div>
-        <!-- Select for types -->
-        <div class="col-md-2">
-          <label for="types">Selecione os tipos:</label>
-          <select name="types" id="choosentypes" class="form-control">
-            <!--Tipos de pokemon-->
-            <option value="normal">Normal</option>
-            <option value="fire">Fire</option>
-            <option value="water">Water</option>
-            <option value="electric">Electric</option>
-            <option value="grass">Grass</option>
-            <option value="ice">Ice</option>
-            <option value="fighting">Fighting</option>
-            <option value="poison">Poison</option>
-            <option value="ground">Ground</option>
-            <option value="flying">Flying</option>
-            <option value="psychic">Psychic</option>
-            <option value="bug">Bug</option>
-            <option value="rock">Rock</option>
-            <option value="ghost">Ghost</option>
-            <option value="dragon">Dragon</option>
-            <option value="dark">Dark</option>
-            <option value="steel">Steel</option>
-            <option value="fairy">Fairy</option>
-          </select>
-        </div>
-        <!-- Radio selects for repeated types-->
-        <div class="col-md-2 mt-3">
-          <div class="form-check">
+    <div class="d-flex flex-column min-vh-100">
+      <main class="container mt-5 white-text flex-grow-1">
+        <h1 class="text-center">Random pokemon team generator</h1>
+        <!-- Start presets -->
+        <div class="row mt-4 d-flex justify-content-center">
+          <!-- Input for team size -->
+          <div class="col-md-2">
+            <label for="teamSize">Team Size (1-6)</label>
             <input
-              class="form-check-input"
-              type="radio"
-              name="repeatTypes"
-              id="allowrepeat"
-              value="true"
-              checked
+              type="number"
+              id="teamSize"
+              class="form-control"
+              min="1"
+              max="6"
+              value="6"
             />
-            <label class="form-check-label" for="allowrepeat">
-              Repeated Types
-            </label>
           </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="repeatTypes"
-              id="donotallowrepeat"
-              value="false"
-            />
-            <label class="form-check-label" for="donotallowrepeat">
-              Not Repeated Types
-            </label>
+          <!-- Select for types -->
+          <div class="col-md-2">
+            <label for="types">Selecione os tipos:</label>
+            <select name="types" id="choosentypes" class="form-control">
+              <!--Tipos de pokemon-->
+              <option value="normal">Normal</option>
+              <option value="fire">Fire</option>
+              <option value="water">Water</option>
+              <option value="electric">Electric</option>
+              <option value="grass">Grass</option>
+              <option value="ice">Ice</option>
+              <option value="fighting">Fighting</option>
+              <option value="poison">Poison</option>
+              <option value="ground">Ground</option>
+              <option value="flying">Flying</option>
+              <option value="psychic">Psychic</option>
+              <option value="bug">Bug</option>
+              <option value="rock">Rock</option>
+              <option value="ghost">Ghost</option>
+              <option value="dragon">Dragon</option>
+              <option value="dark">Dark</option>
+              <option value="steel">Steel</option>
+              <option value="fairy">Fairy</option>
+            </select>
+          </div>
+          <!-- Radio selects for repeated types-->
+          <div class="col-md-2 mt-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="repeatTypes"
+                id="allowrepeat"
+                value="true"
+                checked
+              />
+              <label class="form-check-label" for="allowrepeat">
+                Repeated Types
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="repeatTypes"
+                id="donotallowrepeat"
+                value="false"
+              />
+              <label class="form-check-label" for="donotallowrepeat">
+                Not Repeated Types
+              </label>
+            </div>
+          </div>
+          <!-- Radio selects for legendary pokemon-->
+          <div class="col-md-2 mt-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="allowlegendary"
+                id="allowlegendary"
+                value="true"
+                checked
+              />
+              <label class="form-check-label" for="allowlegendary">
+                Legendary Pokemon
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="allowlegendary"
+                id="donotallowlegendary"
+                value="false"
+              />
+              <label class="form-check-label" for="donotallowlegendary">
+                Not Legendary Pokemon
+              </label>
+            </div>
+          </div>
+          <!-- Select for generations -->
+          <div class="col-md-2">
+            <label for="types">Select the generation:</label>
+            <select name="generation" id="generation" class="form-control">
+              <!-- All Generations-->
+              <option value="1">Generation 1</option>
+              <option value="2">Generation 2</option>
+              <option value="3">Generation 3</option>
+              <option value="4">Generation 4</option>
+              <option value="5">Generation 5</option>
+              <option value="6">Generation 6</option>
+              <option value="7">Generation 7</option>
+              <option value="8">Generation 8</option>
+              <option value="9">Generation 9</option>
+            </select>
+          </div>
+          <!-- Button for generate-->
+          <div class="row mt-3 d-flex justify-content-center">
+            <div class="col-md-auto">
+              <button id="generateTeamButton" class="btn btn-primary">
+                Generate Team
+              </button>
+            </div>
           </div>
         </div>
-        <!-- Radio selects for legendary pokemon-->
-        <div class="col-md-2 mt-3">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="allowlegendary"
-              id="allowlegendary"
-              value="true"
-              checked
-            />
-            <label class="form-check-label" for="allowlegendary">
-              Legendary Pokemon
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="allowlegendary"
-              id="donotallowlegendary"
-              value="false"
-            />
-            <label class="form-check-label" for="donotallowlegendary">
-              Not Legendary Pokemon
-            </label>
-          </div>
-        </div>
-        <!-- Select for generations -->
-        <div class="col-md-2">
-          <label for="types">Select the generation:</label>
-          <select name="generation" id="generation" class="form-control">
-            <!-- All Generations-->
-            <option value="1">Generation 1</option>
-            <option value="2">Generation 2</option>
-            <option value="3">Generation 3</option>
-            <option value="4">Generation 4</option>
-            <option value="5">Generation 5</option>
-            <option value="6">Generation 6</option>
-            <option value="7">Generation 7</option>
-            <option value="8">Generation 8</option>
-            <option value="9">Generation 9</option>
-          </select>
-        </div>
-				<!-- Button for generate-->
-        <div class="row mt-3 d-flex justify-content-center">
-          <div class="col-md-auto">
-            <button id="generateTeamButton" class="btn btn-primary">
-              Generate Team
-            </button>
-          </div>
-        </div>
-      </div>
-			<!-- End presets and button -->
-			<!-- Start team output -->
-			<div id="teamOutput" class="row mt-5 d-flex justify-content-center"></div>
-			<!-- End team output -->
-    </main>
+        <!-- End presets and button -->
+        <!-- Start team output -->
+        <div
+          id="teamOutput"
+          class="row mt-5 d-flex justify-content-center"
+        ></div>
+        <!-- End team output -->
+      </main>
+
+      <footer class="bg-footer text-white text-center py-3">
+        <strong
+          >Created by
+          <a href="https://github.com/LucasGdBS" target="_blank"
+            >Lucasgdbs</a
+          ></strong
+        >
+      </footer>
+    </div>
 
     <!-- Bootstrap JS -->
     <script
