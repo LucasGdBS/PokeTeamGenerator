@@ -107,3 +107,69 @@ function showCheckboxesGeneration() {
     expanded_generation = false;
   }
 }
+
+// Responsavel por criar o time
+// Pegando os valores dos inputs
+const teamSizeInput = document.getElementById("teamSizeInput");
+const repeatTypesRadio = document.getElementsByName("repeatTypes");
+const allowLegendariesRadio = document.getElementsByName("allowLegendaries");
+const generateTeamButton = document.getElementById("generateTeamButton");
+const teamOutput = document.getElementById("teamOutput");
+var checkedItemsTypes = getCheckedItemsTypes();
+var checkedItemsGenerations = getCheckedItemsGenerations();
+
+let maker = new TeamMaker();
+
+const typeColors = {
+  bug: "#A8B820",
+  dark: "#705848",
+  dragon: "#7038F8",
+  electric: "#F8D030",
+  fairy: "#EE99AC",
+  fighting: "#C03028",
+  fire: "#F08030",
+  flying: "#A890F0",
+  ghost: "#705898",
+  grass: "#78C850",
+  ground: "#E0C068",
+  ice: "#98D8D8",
+  normal: "#A8A878",
+  poison: "#A040A0",
+  psychic: "#F85888",
+  rock: "#B8A038",
+  steel: "#B8B8D0",
+  water: "#6890F0",
+};
+
+// Função para gerar os pokemon vai aqui!
+
+
+
+// Responsavel por recuperar os valores dos checkbox
+function getCheckedItemsTypes() {
+  var checkboxes = document.querySelectorAll('#checkboxes-type input[type="checkbox"]');
+  var checkedItems = [];
+
+  checkboxes.forEach(function(checkbox) {
+    if (checkbox.checked) {
+      checkedItems.push(checkbox.value);
+    }
+  });
+
+  return checkedItems;
+}
+
+function getCheckedItemsGenerations() {
+  var checkboxes = document.querySelectorAll('#checkboxes-generation input[type="checkbox"]');
+  var checkedItems = [];
+
+  checkboxes.forEach(function(checkbox) {
+    if (checkbox.checked) {
+      checkedItems.push(checkbox.value);
+    }
+  });
+
+  return checkedItems;
+}
+
+
