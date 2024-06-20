@@ -285,6 +285,7 @@ function getCheckedItems(containerId) {
       checkedItems.push(checkbox.value);
     }
   });
+  checkedItems.shift();
   return checkedItems;
 }
 
