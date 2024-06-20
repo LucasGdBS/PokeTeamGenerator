@@ -1,126 +1,80 @@
-/* Reset de estilos básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.white-text {
+  color: #ffffff;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-body {
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  text-align: center;
-  margin-top: 50px;
-  color: #ececec;
-  background-color: #212121;
-}
-
-main {
-  flex: 1;
-}
-
-input[type="number"],
-input[type="radio"],
-button {
-  padding: 10px 15px; /* Adiciona espaço interno para melhorar a aparência */
-  margin: 5px; /* Adiciona uma margem entre os elementos */
-  border: none; /* Remove a borda padrão */
-  background-color: #424242; /* Cor de fundo para os inputs e botão */
-  color: #ffffff; /* Cor do texto */
-  font-size: 16px; /* Tamanho da fonte */
-  cursor: pointer; /* Cursor do mouse muda para ponteiro ao passar por cima */
-  border-radius: 5px;
-}
-
-/* Estilizando botão de hover */
-button:hover {
-  background-color: #616161; /* Cor de fundo quando o mouse está sobre o botão */
-}
-
-/* Estilizando inputs de radio */
-input[type="radio"] {
-  margin-right: 10px; /* Espaço à direita para separar os radio buttons */
-}
-
-#generateTeamButton.generating {
-  background-color: #ccc; /* Cor de fundo cinza para indicar inatividade */
-  cursor: not-allowed; /* Cursor de mouse para indicar inatividade */
-}
-
-.footer {
+.bg-footer {
   background-color: #00695c;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  position: fixed;
-  bottom: 0;
+}
+
+footer a,
+footer a:visited{
+    color: #ffffff;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: #000;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
   width: 100%;
   font-weight: bold;
 }
 
-.footer a {
-  color: #fff;
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
 }
 
-/* Estilizando o contêiner de Pokémon */
-.pokemon-container {
+#checkboxes-type,
+#checkboxes-generation{
+  display: none;
+  color: #212529;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 1;
+}
+
+#checkboxes-type label,
+#checkboxes-generation label {
+  display: block;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+.card-horizontal {
   display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espaçamento entre os cartões */
-  margin-top: 20px; /* Espaçamento do topo */
+  flex: 1 1 auto;
 }
-
-/* Estilizando os cartões de Pokémon */
-.pokemon {
+.card-img-left {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+.card-body {
   display: flex;
-  align-items: center; /* Centraliza verticalmente os itens */
-  justify-content: space-between; /* Espaça os itens */
-  padding: 10px 15px;
-  height: 80px; /* Altura específica */
-  width: 60%;
-  color: #ffffff;
-  border-radius: 10px; /* Cantos arredondados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
-  font-size: 18px; /* Tamanho da fonte */
-  gap: 15px; /* Espaçamento entre as seções */
-  margin-left: auto;
-  margin-right: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-body p {
+  margin: 0;
+}
+.badge {
+  margin: 0 2px;
 }
 
-.pokemon-id,
-.pokemon-name,
-.pokemon-types {
-  flex: 1; /* Faz com que cada item ocupe espaço igual */
-  text-align: center; /* Centraliza o texto em cada item */
-}
-
-.pokemon-id {
-  font-size: 16px; /* Tamanho menor para o ID */
-  text-align: left;
-}
-
-.pokemon-sprite {
-  width: 100px; /* Tamanho da imagem */
-  height: 100px; /* Tamanho da imagem */
-  border-radius: 50%; /* Deixa a imagem redonda */
-  text-align: center;
-}
-
-.pokemon-name {
-  font-weight: bold;
-  font-size: 20px; /* Tamanho maior para destaque */
-  text-align: left;
-}
-
-.pokemon-container a {
-  color: #ffffff;
+.card-body a {
+  cursor: pointer;
   text-decoration: none;
 }
