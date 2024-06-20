@@ -324,13 +324,13 @@ function getCheckedItemsGenerations() {
 }
 
 // Responsavel por marcar todos os checkbox
-function checkAllTypes() {
+function checkAllBoxes(id_checkbox, class_checkbox) {
   var checkall = document.getElementById(
-    'checkall-type'
+    `${id_checkbox}`
   );
 
   checkboxes = document.querySelectorAll(
-    '#checkboxes-type input[type="checkbox"]'
+    `#${class_checkbox} input[type="checkbox"]`
   );
 
   if (checkall.checked) {
@@ -344,27 +344,10 @@ function checkAllTypes() {
   }
 }
 
-document.getElementById('checkall-type').addEventListener('change', checkAllTypes);
+document.getElementById('checkall-type').addEventListener('change', function() {
+  checkAllBoxes('checkall-type', 'checkboxes-type');
+});
 
-
-function checkAllGenerations() {
-  var checkall = document.getElementById(
-    'checkall-generation'
-  );
-
-  checkboxes = document.querySelectorAll(
-    '#checkboxes-generation input[type="checkbox"]'
-  );
-
-  if (checkall.checked) {
-    checkboxes.forEach(function (checkbox) {
-      checkbox.checked = true;
-    });
-  } else {
-    checkboxes.forEach(function (checkbox) {
-      checkbox.checked = false;
-    });
-  }
-}
-
-document.getElementById('checkall-generation').addEventListener('change', checkAllGenerations);
+document.getElementById('checkall-generation').addEventListener('change', function() {
+  checkAllBoxes('checkall-generation', 'checkboxes-generation');
+});
