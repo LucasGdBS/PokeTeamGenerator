@@ -1,42 +1,406 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.ico" />
-    <title>Team Generator</title>
+    <title>Team Maker</title>
   </head>
-  <body>
-    <main>
-      <h1>Random pokemon team generator</h1>
+  <body class="bg-dark">
+    <div class="d-flex flex-column min-vh-100">
+      <main class="container mt-5 white-text flex-grow-1">
+        <h1 class="text-center">Random pokemon team generator</h1>
+        <!-- Start presets -->
+        <div class="row mt-4 d-flex justify-content-center">
+          <!-- Input for team size -->
+          <div class="col-md-2">
+            <label for="teamSize">Team Size (1-6)</label>
+            <input
+              type="number"
+              id="teamSizeInput"
+              class="form-control"
+              min="1"
+              max="6"
+              value="6"
+            />
+          </div>
+          <!-- Select for types -->
+          <div class="col-md-2">
+            <form>
+              <div class="multiselect">
+                <div class="selectBox" onclick="showCheckboxesTypes()">
+                  <label for=""></label>
+                  <select class="form-control">
+                    <option>Select types</option>
+                  </select>
+                  <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes-type" class="form-check form-switch">
+                  <label for="checkall-type">
+                    <input type="checkbox" class="form-check-input ps-1" id="checkall-type" checked/>Marcar todos
+                  </label>
+                  <label for="normal">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="one"
+                      value="normal"
+                      checked
+                    />Normal</label
+                  >
+                  <label for="fire">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="two"
+                      value="fire"
+                      checked
+                    />Fire</label
+                  >
+                  <label for="water">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="three"
+                      value="water"
+                      checked
+                    />Water</label
+                  >
+                  <label for="electric">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="four"
+                      value="electric"
+                      checked
+                    />Electric</label
+                  >
+                  <label for="grass">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="five"
+                      value="grass"
+                      checked
+                    />Grass</label
+                  >
+                  <label for="ice">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="six"
+                      value="ice"
+                      checked
+                    />Ice</label
+                  >
+                  <label for="fighting">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="seven"
+                      value="fighting"
+                      checked
+                    />Fighting</label
+                  >
+                  <label for="poison">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="eight"
+                      value="poison"
+                      checked
+                    />Poison</label
+                  >
+                  <label for="ground">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="nine"
+                      value="ground"
+                      checked
+                    />Ground</label
+                  >
+                  <label for="flying">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="ten"
+                      value="flying"
+                      checked
+                    />Flying</label
+                  >
+                  <label for="psychic">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="eleven"
+                      value="psychic"
+                      checked
+                    />Psychic</label
+                  >
+                  <label for="bug">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="twelve"
+                      value="bug"
+                      checked
+                    />Bug</label
+                  >
+                  <label for="rock">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="thirteen"
+                      value="rock"
+                      checked
+                    />Rock</label
+                  >
+                  <label for="ghost">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="fourteen"
+                      value="ghost"
+                      checked
+                    />Ghost</label
+                  >
+                  <label for="dragon">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="fifteen"
+                      value="dragon"
+                      checked
+                    />Dragon</label
+                  >
+                  <label for="dark">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="sixteen"
+                      value="dark"
+                      checked
+                    />Dark</label
+                  >
+                  <label for="steel">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="seventeen"
+                      value="steel"
+                      checked
+                    />Steel</label
+                  >
+                  <label for="fairy">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="eighteen"
+                      value="fairy"
+                      checked
+                    />Fairy</label
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Radio selects for repeated types-->
+          <div class="col-md-2 mt-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="repeatTypes"
+                id="allowrepeat"
+                value="true"
+                checked
+              />
+              <label class="form-check-label" for="allowrepeat">
+                Repeated Types
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="repeatTypes"
+                id="donotallowrepeat"
+                value="false"
+              />
+              <label class="form-check-label" for="donotallowrepeat">
+                Not Repeated Types
+              </label>
+            </div>
+          </div>
+          <!-- Radio selects for legendary pokemon-->
+          <div class="col-md-2 mt-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="allowlegendary"
+                id="allowlegendary"
+                value="true"
+                checked
+              />
+              <label class="form-check-label" for="allowlegendary">
+                Legendary Pokemon
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="allowlegendary"
+                id="donotallowlegendary"
+                value="false"
+              />
+              <label class="form-check-label" for="donotallowlegendary">
+                Not Legendary Pokemon
+              </label>
+            </div>
+          </div>
+          <!-- Select for generations -->
+          <div class="col-md-2">
+            <form>
+              <div class="multiselect">
+                <div class="selectBox" onclick="showCheckboxesGeneration()">
+                  <label for=""></label>
+                  <select class="form-control">
+                    <option>Select generations</option>
+                  </select>
+                  <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes-generation" class="form-check form-switch">
+                  <label for="checkall">
+                    <input type="checkbox" class="form-check-input ps-1" id="checkall-generation" checked/>Marcar todos
+                  </label>
+                  <label for="generation 1">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-i"
+                      value="genetarion-i"
+                      checked
+                    />Generation 1</label
+                  >
+                  <label for="generation 2">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-ii"
+                      value="genetarion-ii"
+                      checked
+                    />Generation 2</label
+                  >
+                  <label for="generation 3">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-iii"
+                      value="genetarion-iii"
+                      checked
+                    />Generation 3</label
+                  >
+                  <label for="generation 4">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-iv"
+                      value="genetarion-iv"
+                      checked
+                    />Generation 4</label
+                  >
+                  <label for="generation 5">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-v"
+                      value="genetarion-v"
+                      checked
+                    />Generation 5</label
+                  >
+                  <label for="generation 6">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-vi"
+                      value="genetarion-vi"
+                      checked
+                    />Generation 6</label
+                  >
+                  <label for="generation 7">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-vii"
+                      value="genetarion-vii"
+                      checked
+                    />Generation 7</label
+                  >
+                  <label for="generation 8">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-viii"
+                      value="genetarion-viii"
+                      checked
+                    />Generation 8</label
+                  >
+                  <label for="generation 9">
+                    <input
+                      class="form-check-input ps-1"
+                      type="checkbox"
+                      id="generation-ix"
+                      value="genetarion-ix"
+                      checked
+                    />Generation 9</label
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Button for generate-->
+          <div class="row mt-3 d-flex justify-content-center">
+            <div class="col-md-auto">
+              <button id="generateTeamButton" class="btn btn-primary">
+                Generate Team
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End presets and button -->
+        <!-- Start team output -->
+        <div
+          id="teamOutput"
+          class="row mt-5 d-flex justify-content-center"
+        ></div>
+        <!-- End team output -->
+      </main>
 
-      <label for="teamSizeInput">Team Size(1-6):</label>
-      <input type="number" id="teamSizeInput" min="1" max="6" value="6" />
-      <br /><br />
-      <label>
-        <input type="radio" name="repeatTypes" value="true" />
-        Allow Repeated Types
-      </label>
-      <label>
-        <input type="radio" name="repeatTypes" value="false" checked />
-        Do Not Allow Repeated Types
-      </label>
-      <br /><br />
-
-      <button id="generateTeamButton">Generate Team</button>
-      
-      <div id="teamOutput" class="pokemon-container"></div>
-    </main>
-    <footer class="footer">
-      <p>
-        Created by
-        <a href="https://www.github.com/Lucasgdbs" target="_blank"
-          >Lucas Gabriel</a
+      <footer class="bg-footer text-white text-center py-3">
+        <strong
+          >Created by
+          <a href="https://github.com/LucasGdBS" target="_blank"
+            >Lucasgdbs</a
+          ></strong
         >
-      </p>
-    </footer>
+      </footer>
+    </div>
 
-    <script type="module" src="script.js"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
