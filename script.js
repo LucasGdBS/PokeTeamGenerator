@@ -162,6 +162,20 @@ function generateTeam() {
   maker.allow_types = getCheckedItems("checkboxes-type");
   maker.allow_generations = getCheckedItems("checkboxes-generation");
 
+  if (maker.allow_types.length === 0) {
+    alert("Please select at least one type.");
+    generateTeamButton.disabled = false;
+    generateTeamButton.classList.remove("generating");
+    return;
+  }
+
+  if (maker.allow_generations.length === 0) {
+    alert("Please select at least one generation.");
+    generateTeamButton.disabled = false;
+    generateTeamButton.classList.remove("generating");
+    return;
+  }
+
   // Limpa o conteúdo atual do contêiner de Pokémon
   teamOutput.innerHTML = "";
 
@@ -171,8 +185,6 @@ function generateTeam() {
     .then((team) => {
       team.forEach((pokemon) => {
         const { game_indice, name, type, sprite } = pokemon;
-
-        console.log(pokemon);
 
         // Create the outer div for the card
         const cardDiv = document.createElement("div");
@@ -198,7 +210,7 @@ function generateTeam() {
 
         // Create the image element
         const imgLink = document.createElement("a");
-        imgLink.href = `https://pokemondb.net/pokedex/${game_indice}`; // Adicione a URL desejada aqui 
+        imgLink.href = `https://pokemondb.net/pokedex/${game_indice}`; // Adicione a URL desejada aqui
 
         const img = document.createElement("img");
         img.src = sprite;
@@ -214,15 +226,19 @@ function generateTeam() {
         nameLink.href = `https://pokemondb.net/pokedex/${game_indice}`; // Adicione a URL desejada aqui
         nameLink.target = "_blank";
         nameLink.textContent = name;
-        nameLink.classList.add("text-white", "d-flex", "justify-content-start");
+        nameLink.classList.add("text-white", "d-flex", "justify-content-center");
         nameElement.appendChild(nameLink);
 
-        const capitalizedTypes = type.map(type => type.charAt(0).toUpperCase() + type.slice(1));
+        const capitalizedTypes = type.map(
+          (type) => type.charAt(0).toUpperCase() + type.slice(1)
+        );
 
         // Create the types text
         const typesText = document.createElement("p");
         typesText.classList.add("card-text");
-        typesText.innerHTML = `<strong>Types: ${capitalizedTypes.join(", ")}</strong>`;
+        typesText.innerHTML = `<strong>Types: ${capitalizedTypes.join(
+          ", "
+        )}</strong>`;
 
         // Append all elements to the card body
         cardBody.appendChild(idText);
@@ -260,7 +276,9 @@ generateTeamButton.addEventListener("click", generateTeam);
 
 // Função para capturar os itens marcados
 function getCheckedItems(containerId) {
-  const checkboxes = document.querySelectorAll(`#${containerId} input[type=checkbox]`);
+  const checkboxes = document.querySelectorAll(
+    `#${containerId} input[type=checkbox]`
+  );
   let checkedItems = [];
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
@@ -303,3 +321,49 @@ function getCheckedItemsGenerations() {
 
   return checkedItems;
 }
+
+// Responsavel por marcar todos os checkbox
+function checkAllTypes() {
+  var checkall = document.getElementById(
+    'checkall-type'
+  );
+
+  checkboxes = document.querySelectorAll(
+    '#checkboxes-type input[type="checkbox"]'
+  );
+
+  if (checkall.checked) {
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = false;
+    });
+  }
+}
+
+document.getElementById('checkall-type').addEventListener('change', checkAllTypes);
+
+
+function checkAllGenerations() {
+  var checkall = document.getElementById(
+    'checkall-generation'
+  );
+
+  checkboxes = document.querySelectorAll(
+    '#checkboxes-generation input[type="checkbox"]'
+  );
+
+  if (checkall.checked) {
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = false;
+    });
+  }
+}
+
+document.getElementById('checkall-generation').addEventListener('change', checkAllGenerations);
